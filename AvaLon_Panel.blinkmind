@@ -1,0 +1,276 @@
+{
+  "rootTopicKey": "cbd901f9-08a4-416c-9328-20a7a5498411",
+  "editorRootTopicKey": "cbd901f9-08a4-416c-9328-20a7a5498411",
+  "focusKey": "4c2a914d-3689-4c0b-bc30-6f6d61745883",
+  "extData": {
+    "TOPIC_REFERENCE": {
+      "reference": {}
+    }
+  },
+  "topics": [
+    {
+      "key": "cbd901f9-08a4-416c-9328-20a7a5498411",
+      "parentKey": null,
+      "subKeys": [
+        "ed9553c1-e63f-4c96-8f3c-feef1fbfeee9",
+        "bbcf4c74-9122-497b-9d0e-52b9c26a0d60"
+      ],
+      "collapse": false,
+      "style": null,
+      "blocks": [
+        {
+          "type": "CONTENT",
+          "data": "Avlon"
+        }
+      ]
+    },
+    {
+      "key": "9e70f43f-6752-474f-ada4-55960da19c6d",
+      "parentKey": "ed9553c1-e63f-4c96-8f3c-feef1fbfeee9",
+      "subKeys": [],
+      "collapse": false,
+      "style": null,
+      "blocks": [
+        {
+          "type": "CONTENT",
+          "data": "Choose Table"
+        }
+      ]
+    },
+    {
+      "key": "bbcf4c74-9122-497b-9d0e-52b9c26a0d60",
+      "parentKey": "cbd901f9-08a4-416c-9328-20a7a5498411",
+      "subKeys": [
+        "e404d0f6-938f-44e9-9c1b-cf4ff1dbc826",
+        "627e1660-bf1d-4587-a4c7-76dd97330067",
+        "47daf2b8-9071-41be-bb6d-a9c191b3b920",
+        "09a11a31-0303-4bd1-b70a-5315979f380c",
+        "f9936ede-85fc-40d5-8054-3943cc7cef0b",
+        "0f77c608-2d15-41b5-ba68-672d17a512cc"
+      ],
+      "collapse": false,
+      "style": null,
+      "blocks": [
+        {
+          "type": "CONTENT",
+          "data": "Host"
+        }
+      ]
+    },
+    {
+      "key": "5759fa9a-0525-4498-b19f-ee4ede2fb429",
+      "parentKey": "ed9553c1-e63f-4c96-8f3c-feef1fbfeee9",
+      "subKeys": [],
+      "collapse": false,
+      "style": null,
+      "blocks": [
+        {
+          "type": "CONTENT",
+          "data": "Given Note for guessing  role"
+        }
+      ]
+    },
+    {
+      "key": "47daf2b8-9071-41be-bb6d-a9c191b3b920",
+      "parentKey": "bbcf4c74-9122-497b-9d0e-52b9c26a0d60",
+      "subKeys": [],
+      "collapse": false,
+      "style": null,
+      "blocks": [
+        {
+          "type": "CONTENT",
+          "data": "Display the Timmer"
+        }
+      ]
+    },
+    {
+      "key": "627e1660-bf1d-4587-a4c7-76dd97330067",
+      "parentKey": "bbcf4c74-9122-497b-9d0e-52b9c26a0d60",
+      "subKeys": [],
+      "collapse": false,
+      "style": null,
+      "blocks": [
+        {
+          "type": "CONTENT",
+          "data": "Storage the data in cache"
+        }
+      ]
+    },
+    {
+      "key": "dbbeb468-3c76-4fb0-a6ad-75ac32d0c24a",
+      "parentKey": "ed9553c1-e63f-4c96-8f3c-feef1fbfeee9",
+      "subKeys": [],
+      "collapse": false,
+      "style": null,
+      "blocks": [
+        {
+          "type": "CONTENT",
+          "data": "Login with a name"
+        }
+      ]
+    },
+    {
+      "key": "e404d0f6-938f-44e9-9c1b-cf4ff1dbc826",
+      "parentKey": "bbcf4c74-9122-497b-9d0e-52b9c26a0d60",
+      "subKeys": [],
+      "collapse": false,
+      "style": null,
+      "blocks": [
+        {
+          "type": "CONTENT",
+          "data": "Serve The Web"
+        }
+      ]
+    },
+    {
+      "key": "484f91fc-985f-4664-a439-ab62155f4811",
+      "parentKey": "ed9553c1-e63f-4c96-8f3c-feef1fbfeee9",
+      "subKeys": [],
+      "collapse": false,
+      "style": null,
+      "blocks": [
+        {
+          "type": "CONTENT",
+          "data": "Start Timmer"
+        }
+      ]
+    },
+    {
+      "key": "0f77c608-2d15-41b5-ba68-672d17a512cc",
+      "parentKey": "bbcf4c74-9122-497b-9d0e-52b9c26a0d60",
+      "subKeys": [],
+      "collapse": false,
+      "style": null,
+      "blocks": [
+        {
+          "type": "CONTENT",
+          "data": "Check History vote"
+        }
+      ]
+    },
+    {
+      "key": "4c2a914d-3689-4c0b-bc30-6f6d61745883",
+      "parentKey": "ed9553c1-e63f-4c96-8f3c-feef1fbfeee9",
+      "subKeys": [],
+      "collapse": false,
+      "style": null,
+      "blocks": [
+        {
+          "type": "CONTENT",
+          "data": "Chceking Vote"
+        }
+      ]
+    },
+    {
+      "key": "09a11a31-0303-4bd1-b70a-5315979f380c",
+      "parentKey": "bbcf4c74-9122-497b-9d0e-52b9c26a0d60",
+      "subKeys": [],
+      "collapse": false,
+      "style": null,
+      "blocks": [
+        {
+          "type": "CONTENT",
+          "data": "Start and End Game"
+        }
+      ]
+    },
+    {
+      "key": "f9936ede-85fc-40d5-8054-3943cc7cef0b",
+      "parentKey": "bbcf4c74-9122-497b-9d0e-52b9c26a0d60",
+      "subKeys": [],
+      "collapse": false,
+      "style": null,
+      "blocks": [
+        {
+          "type": "CONTENT",
+          "data": "Random offer a role with rules"
+        }
+      ]
+    },
+    {
+      "key": "ed9553c1-e63f-4c96-8f3c-feef1fbfeee9",
+      "parentKey": "cbd901f9-08a4-416c-9328-20a7a5498411",
+      "subKeys": [
+        "dbbeb468-3c76-4fb0-a6ad-75ac32d0c24a",
+        "9e70f43f-6752-474f-ada4-55960da19c6d",
+        "484f91fc-985f-4664-a439-ab62155f4811",
+        "5759fa9a-0525-4498-b19f-ee4ede2fb429",
+        "4c2a914d-3689-4c0b-bc30-6f6d61745883"
+      ],
+      "collapse": false,
+      "style": null,
+      "blocks": [
+        {
+          "type": "CONTENT",
+          "data": "Clint"
+        }
+      ]
+    }
+  ],
+  "config": {
+    "readOnly": false,
+    "allowUndo": true,
+    "layoutDir": 0,
+    "theme": {
+      "name": "theme1",
+      "randomColor": false,
+      "background": "rgb(250,245,205)",
+      "highlightColor": "#50C9CE",
+      "marginH": 50,
+      "marginV": 30,
+      "contentStyle": {
+        "lineHeight": "1.5"
+      },
+      "linkStyle": {
+        "lineRadius": 5
+      },
+      "rootTopic": {
+        "contentStyle": {
+          "background": "rgb(221, 170, 68)",
+          "color": "#fff",
+          "fontSize": "34px",
+          "borderRadius": "5px",
+          "padding": "16px 18px 16px 18px"
+        },
+        "subLinkStyle": {
+          "lineType": "curve",
+          "lineWidth": "2px",
+          "lineColor": "rgb(221, 170, 68)"
+        }
+      },
+      "primaryTopic": {
+        "contentStyle": {
+          "background": "#e8eaec",
+          "borderWidth": "2px",
+          "borderStyle": "solid",
+          "borderColor": "rgb(221, 170, 68)",
+          "borderRadius": "5px",
+          "fontSize": "17px",
+          "padding": "10px 15px 10px 15px"
+        },
+        "subLinkStyle": {
+          "lineType": "curve",
+          "lineWidth": "2px",
+          "lineColor": "rgb(221, 170, 68)"
+        }
+      },
+      "normalTopic": {
+        "contentStyle": {
+          "background": "#fff",
+          "border": "1px solid #e8eaec",
+          "borderRadius": "20px",
+          "color": "rgb(187, 136, 34)",
+          "fontSize": "13px",
+          "padding": "4px 10px"
+        },
+        "subLinkStyle": {
+          "lineType": "round",
+          "lineRadius": 5,
+          "lineWidth": "1px",
+          "lineColor": "rgb(187, 136, 34)"
+        }
+      }
+    }
+  },
+  "formatVersion": null
+}
