@@ -1441,16 +1441,47 @@ class Avalon:
         """
         To handle which stage to move next based on game progress.
 
-        TODO write document here
+        There are total 6 + 1 stages, which are (with sequence):
+
+        'init' -> 'lake_lady'(optional) -> 'proposal' -> 'vote' -> 'quest' -> 'record' -> 'end'
+
+        Normally, if system detects every player are in the last msg pack in the same stage, it will move the next
+        stage to current stage. But there are exceptions due to the game logic.
+
+        'end' stage is the final stage of the game, it would be only reached once in game and only either good/evil
+        side has won at least 3 quests will trigger game progress to this stage. After this stage, is end game.
+
+        'record' stage is the last stage of each round. In this stage, self.move_next_round would be called to reset
+        some items in self.game_param. If neither good/evil side has won 3 quests, the next stage will go back to
+        previous 'proposal' stage where the new round begin.
+
+        Note that if lady of the lake is included, the system will check if the following conditions are met:
+        1) Does game have completed at least 2 quests? This is due to lady of the lake could only use her power after
+        2nd quest is completed.
+        2) Is lady of the lake has already used her power in this quest? This is because lady of the lake could only
+        use her power once, and next lady of lake could only use the power again on next quest. So for instance if she
+        used her power on quest 3 round 1, she could not use the power again and once the quest is completed, she will
+        give her power to next lady of lake (the target she chooses) and new lady of the lake could use the power again
+        on new quest.
+
+        With the above conditions met, system will move from 'record' stage to 'lake_lady' stage instead of 'proposal'
+        stage. And once 'lake_lady' stage is completed, the game will then move to 'proposal' stage.
+
+        'vote' stage would only be reached after 'proposal' stage. However, note that if is 5th round, 'proposal' stage
+        will skip 'vote' stage and jump to 'quest' stage. From 'vote' stage there are 2 outcomes, if vote result is
+        approved, the game will move to next stage which is 'quest' stage, otherwise (vote result is rejected), this
+        round is completed, and it will skip 'quest' stage and jump to 'record' stage.
+
+        'init' stage will only happen in the beginning of the game (quest 1 round 1), therefore, if lady of the lake
+        is included, 'init' stage should skip 'lake_lady' stage and jump to 'proposal' stage as lady of the lake could
+        not use her power on 1st quest.
         """
-        if (self.game_param['stage'] == 'record' and self.game_param['vote_result'] == 'rejected') or \
-                (self.game_param['stage'] == 'record' and not self.game_param['win_3_quests']):
+        if self.game_param['stage'] == 'record' and not self.game_param['win_3_quests']:
             self.move_next_round()
             self.game_param['stage'] = 'proposal'
             if self.has_lake_lady:
                 if self.game_param['quest'] > 2 and not self.game_param['done_lake_lady']:
                     self.game_param['stage'] = 'lake_lady'
-
         elif self.game_param['stage'] == 'vote' and self.game_param['vote_result'] == 'rejected':
             self.game_param['stage'] = 'record'
         elif self.game_param['stage'] == 'proposal' and self.game_param['round'] == 5:
@@ -1463,6 +1494,22 @@ class Avalon:
             self.end_game = True
 
     def move_next_round(self):
+        """
+        To reset the game parameters to begin a new round in game.
+
+        There are 2 possible events that could possibly trigger this function. One is the proposal from leader is
+        rejected (did not get to complete quest hence no quest result), another one is the quest is completed but
+        neither good/evil side has won 3 quests.
+
+        Therefore, if there is no quest result (proposal is rejected), the game will move to next round ('round' += 1)
+        and 'quest' would remain the same.
+
+        Otherwise, it would be a new quest, 'quest' += 1 and 'round' would be back to 1.
+
+        Note that if lady of the lake is included, and it is a new quest, the new lady of the lake would be the player
+        who was the target of last lady of the lake. And the system will reset the value 'done_lake_lady' and
+        'lake_lady_target' to None.
+        """
         if self.game_param['quest_result'] is None:
             self.game_param['round'] += 1
         else:
