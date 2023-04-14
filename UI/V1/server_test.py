@@ -36,7 +36,7 @@ def client_handle(nickname, avalon):
                 continue
             clients[nickname].send(msg.encode('utf-8'))
             data = clients[nickname].recv(1024)
-            nn, input_ = data.decode('utf-8')
+            nn, input_ = data.decode('utf-8').split(':')
             input_ = input_.strip()
             print(input_)
 
