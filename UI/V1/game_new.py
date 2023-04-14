@@ -557,15 +557,15 @@ class Avalon:
         But some parameters are not straightforward, for instance to get a player's vote, it needs to look at
         'game_param['votes'][nickname] instead, this function is to handle these special cases.
         """
+        # game_param does not store nickname, so special handle if nickname is requested
+        if key == 'nickname':
+            return nickname
         # To convert list to string, mainly target for parameters like 'members', 'p_no_vote' etc
-        if isinstance(self.game_param[key], list):
+        elif isinstance(self.game_param[key], list):
             return ', '.join(self.game_param[key])
         # To look further in game_param with nickname, mainly target for parameters like 'votes' and 'attempts'
         elif isinstance(self.game_param[key], dict):
             return self.game_param[key][nickname]
-        # game_param does not store nickname, so special handle if nickname is requested
-        elif key == 'nickname':
-            return nickname
         else:
             return self.game_param[key]
 
@@ -1438,6 +1438,11 @@ class Avalon:
                 self.game_param['progress'][nickname]['step'] += 1
 
     def move_next_stage(self):
+        """
+        To handle which stage to move next based on game progress.
+
+        TODO write document here
+        """
         if (self.game_param['stage'] == 'record' and self.game_param['vote_result'] == 'rejected') or \
                 (self.game_param['stage'] == 'record' and not self.game_param['win_3_quests']):
             self.move_next_round()
