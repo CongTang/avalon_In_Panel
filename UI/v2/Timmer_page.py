@@ -5,6 +5,7 @@ from game import Avalon
 import param
 from panel.viewable import Viewer
 
+
 class Timmer_page(Viewer):
     """
     Timmer page class
@@ -17,19 +18,13 @@ class Timmer_page(Viewer):
     -----------
     To use it. using pn.Column(Timmer_page(speak_time = 120)).show()
     """
-    speak_time = param.Integer(default=60, doc = 'The timmer value in second')
+    #speak_time = param.Integer(default=60, doc = 'The timmer value in second')
     
     def __init__(self,**params):
         """
         init the class, define all the button here
         """
         super().__init__(**params)
-        self.timmer = pn.indicators.Gauge(
-            name='Timmer', 
-            value=self.speak_time, 
-            bounds=(0, self.speak_time),
-            format = '{value} S'
-        )
         
         self.start_button = pn.widgets.Toggle(
             name='Start Timmer',
@@ -44,12 +39,28 @@ class Timmer_page(Viewer):
             height = 125,
             width = 125
         )
-        self.audio = pn.pane.Audio('ES_Sci Fi Alarm 12 - SFX Producer.mp3', name='Audio')
-
-
-
+        self.audio = pn.pane.Audio(
+            'ES_Sci Fi Alarm 12 - SFX Producer.mp3', 
+            name='Audio'
+        )
         
-        
+        self.time_silder = pn.widgets.IntSlider(
+            name = 'Time Slider', 
+            start = 0, 
+            end = 60, 
+            step = 5, 
+            value = 60,
+            width = 400,
+            height = 50
+            
+        )
+        self.timmer = pn.indicators.Gauge(
+            name='Timmer', 
+            value=self.time_silder.value, 
+            bounds=(0, self.time_silder.value),
+            format = '{value} S'
+        )
+      
     def timmer_update(self)-> None:
         """
         A funtion for timmer update. Call by cb(pn.state.add_periodic_callback)
@@ -62,19 +73,14 @@ class Timmer_page(Viewer):
             #code below is not work??!!
             #self.start_buttom.value = False
             #self.timmer.value = self.speak_time 
-            #print('triggered')
-            
-            
-            
-            
-            
+            #print('triggered')         
             
     def reset_click(self,event)-> None:
         """
         reset button event. when click reset timmer value
         """
         self.start_button.value = False
-        self.timmer.value = self.speak_time
+        self.timmer.value = self.time_silder.value
     
     def layout(self)-> pn.Column:
         """
@@ -91,12 +97,14 @@ class Timmer_page(Viewer):
         self.reset_button.on_click(self.reset_click)
         
         return pn.Column(
+            
             pn.Row(
                 pn.Column(
                     self.start_button,
                     self.reset_button  
                 ),
                 self.timmer),
+            self.time_silder,
             self.audio
             
         )          
@@ -109,7 +117,5 @@ class Timmer_page(Viewer):
 
 if __name__ == "__main__": 
     pn.Column(
-        Timmer_page(
-            speak_time = 60
-        )
+        Timmer_page()
     ).show();
